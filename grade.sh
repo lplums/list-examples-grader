@@ -25,4 +25,9 @@ fi
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > execute_output.txt
 if [[ grep -c "FAILURES" execute_output.txt = 0]]
 then
-  echo "
+  echo "All tests passed"
+else
+  SCORE = grep -o "Tests Run:." execute_output.txt | sed "s/prefix://"
+  cat 
+  echo "Score: $SCORE/2"
+fi
