@@ -8,14 +8,15 @@ cd student-submission
 
 if [[ -f 'ListExamples.java' ]]
 then 
-  echo "ListExamples found"
+  echo "ListExamples.java found"
 else
-  echo "ListExamples not found"
+  echo "ListExamples.java not found"
   exit 1
 fi
 
 javac -cp $CPATH *.java > compile_output.txt
-if [[ grep -c "error" compile_output.txt = 0]]
+ERROR = grep -c "error" compile_output.txt
+if [[ ERROR = 0]]
 then 
   echo "Compile success"
 else 
