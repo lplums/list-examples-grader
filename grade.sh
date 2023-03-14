@@ -24,9 +24,10 @@ else
   exit 2
 fi
 
-CLASSPATH = '.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples'
+CLASSPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples'
 java -cp $CLASSPATH TestListExamples > execute_output.txt
-if [[ grep -c FAILURES execute_output.txt -eq 0 ]]
+FAILURES=`grep -c FAILURES execute.txt`
+if [[ $FAILURES -eq 0 ]]
 then
   echo "All tests passed"
 else
