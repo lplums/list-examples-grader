@@ -1,8 +1,10 @@
 CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
 
-git clone $1
+rm -rf student-submission
+git clone $1 student-submission
 echo 'Finished cloning'
 
+cd student-submission
 if [[ -f 'ListExamples.java' ]]
 then 
   echo "ListExamples.java found"
@@ -10,6 +12,9 @@ else
   echo "ListExamples.java not found"
   exit 1
 fi
+cd ..
+
+cp student-submission/ListExamples.java ./
 
 javac -cp $CPATH *.java > compile_output.txt
 ERROR=`grep -c error compile_output.txt`
