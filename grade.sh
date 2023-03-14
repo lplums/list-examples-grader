@@ -27,7 +27,7 @@ else
 fi
 
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > execute_output.txt
-FAILURES=`grep -c FAILURES execute.txt`
+FAILURES=`grep -c FAILURES execute_output.txt`
 if [[ $FAILURES -eq 0 ]]
 then
   echo "All tests passed"
