@@ -23,7 +23,7 @@ then
   echo "Compile success"
 else 
   echo "Compile failed"
-  exit 2
+  exit
 fi
 
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > execute_output.txt
