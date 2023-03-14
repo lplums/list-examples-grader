@@ -26,8 +26,7 @@ else
   exit 2
 fi
 
-CLASSPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore'
-java -cp $CLASSPATH TestListExamples > execute_output.txt
+java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > execute_output.txt
 FAILURES=`grep -c FAILURES execute.txt`
 if [[ $FAILURES -eq 0 ]]
 then
