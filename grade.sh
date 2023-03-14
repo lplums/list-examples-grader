@@ -15,8 +15,8 @@ else
 fi
 
 javac -cp $CPATH *.java > compile_output.txt
-ERROR = `grep -c "error" compile_output.txt`
-if [[ ERROR = 0]]
+ERROR=`grep -c error compile_output.txt`
+if [[ $ERROR = 0]]
 then 
   echo "Compile success"
 else 
