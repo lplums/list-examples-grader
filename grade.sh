@@ -24,7 +24,8 @@ else
   exit 2
 fi
 
-java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > execute_output.txt
+CLASSPATH = '.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples'
+java -cp $CLASSPATH TestListExamples > execute_output.txt
 if [[ grep -c FAILURES execute_output.txt -eq 0 ]]
 then
   echo "All tests passed"
