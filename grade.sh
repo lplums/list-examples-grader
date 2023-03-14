@@ -31,12 +31,16 @@ FAILURES=`grep -c FAILURES execute_output.txt`
 if [[ $FAILURES -eq 0 ]]
 then
   echo "All tests passed"
+  echo "--------------"
+  echo "|Score: 2/2 |"
+  echo "--------------"
+  echo ""
 else
   RESULT_LINE=`grep "Tests run:" execute_output.txt`
   SCORE=${RESULT_LINE:25:1}
   cat execute_output.txt
-  echo "-----------------"
+  echo "---------------"
   echo "|Score: $SCORE/2 |"
-  echo "-----------------"
+  echo "---------------"
   echo ""
 fi
