@@ -32,7 +32,8 @@ if [[ $FAILURES -eq 0 ]]
 then
   echo "All tests passed"
 else
-  SCORE = grep -o "Tests Run:." execute_output.txt | sed "s/prefix://"
+  RESULT_LINE=`grep "Tests Run:" execute_output.txt`
+  SCORE=`grep -o "Tests Run:." execute_output.txt | sed "s/prefix://"`
   cat 
   echo "Score: $SCORE/2"
 fi
